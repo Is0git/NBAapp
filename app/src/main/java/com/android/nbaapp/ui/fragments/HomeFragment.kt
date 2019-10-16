@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import com.android.nbaapp.MainActivity
-import com.android.nbaapp.data.GamesPojo
 import com.android.nbaapp.databinding.HomeFragmentBinding
 import com.android.nbaapp.ui.adapters.ViewPagerAdapter
 import dagger.android.support.DaggerFragment

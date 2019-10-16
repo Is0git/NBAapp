@@ -1,4 +1,4 @@
-package com.android.nbaapp.data
+package com.android.nbaapp.data.models
 
 import com.squareup.moshi.Json
 
@@ -29,8 +29,8 @@ data class Games(
     val EndOfPeriod:String?,
     val seasonState:String?,
     val statusGame:String?,
-    val vTeam:Team?,
-    val hTeam:Team?
+    val vTeam: Team?,
+    val hTeam: Team?
 )
 
 data class Team(
@@ -40,7 +40,7 @@ data class Team(
     val nickName:String?,
     @Json(name = "logo")
     val logo_url:String?,
-    val score:Score?
+    val score: Score?
 
 )
 

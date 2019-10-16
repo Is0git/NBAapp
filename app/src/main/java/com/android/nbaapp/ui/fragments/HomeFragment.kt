@@ -6,10 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
+import com.android.nbaapp.MainActivity
+import com.android.nbaapp.data.GamesPojo
 import com.android.nbaapp.databinding.HomeFragmentBinding
 import com.android.nbaapp.ui.adapters.ViewPagerAdapter
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
-class HomeFragment : Fragment() {
+class HomeFragment : DaggerFragment() {
+    @Inject
+   lateinit var context:MainActivity
     lateinit var binding:HomeFragmentBinding
     override fun onCreateView(
         inflater: LayoutInflater,

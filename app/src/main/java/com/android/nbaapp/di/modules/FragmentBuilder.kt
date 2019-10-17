@@ -7,10 +7,9 @@ import com.android.nbaapp.ui.fragments.NewsFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
-@Module(includes = [])
+@Module
 abstract class FragmentBuilder {
     @ContributesAndroidInjector
-    @HomeFragmentScope
     abstract fun HomeFragment() : HomeFragment
 
     @ContributesAndroidInjector

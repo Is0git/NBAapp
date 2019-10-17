@@ -4,8 +4,12 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.android.nbaapp.App
 import com.android.nbaapp.data.models.GamesPojo
 import com.android.nbaapp.data.services.GamesService
+import com.android.nbaapp.di.components.DaggerAppComponent
+import com.android.nbaapp.di.components.DaggerTestComponent
+import com.android.nbaapp.di.modules.RepositorySubComponent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -14,17 +18,21 @@ import javax.inject.Inject
 
 class HomeRepository(val app: Application) {
 
-    val games = MutableLiveData<GamesPojo.AllGames>()
 
+    val games = MutableLiveData<GamesPojo.SeasonGames>()
+    init {
+//        val component = DaggerAppComponent.builder().application(app).build().getHome().build().inject(this)
+        val component = (app as App).app.getHome().build().inject(this)
+        Log.d("TAG", "TEST2: $component")
+    }
     @Inject
     lateinit var retrofit: Retrofit
 
 
-     fun getGames(): LiveData<GamesPojo.AllGames> = runBlocking {
+     fun getGames(): LiveData<GamesPojo.SeasonGames> = runBlocking {
         val service = retrofit.create(GamesService::class.java)
         launch(Dispatchers.IO) {
-            val result = service.getGames<GamesPojo.AllGames>(
-                "standard",
+            val result = service.getGames(
                 "2019"
             ).apply {
                 if (isSuccessful) games.postValue(body()) else Log.d(

@@ -21,7 +21,7 @@ class NewsFragment : Fragment() {
     ): View? {
         binding = NewsFragmentBinding.inflate(inflater, container, false)
         homeViewModel = ViewModelProviders.of(activity!!).get(HomeViewModel::class.java)
-        homeViewModel.data.observe(viewLifecycleOwner, Observer { Log.d("TAG", "RES : ${it.api.message}") })
+        homeViewModel.data.observe(viewLifecycleOwner, Observer { Log.d("TAG", "RES : ${it?.data?.get(0)?.date}") })
         return binding.root
     }
 }

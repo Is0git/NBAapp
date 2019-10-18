@@ -2,7 +2,7 @@ package com.android.nbaapp
 
 
 import com.android.nbaapp.di.AppComponent
-import com.android.nbaapp.di.components.DaggerAppComponent
+import com.android.nbaapp.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import retrofit2.Retrofit

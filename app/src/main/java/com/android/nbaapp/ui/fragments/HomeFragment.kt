@@ -1,6 +1,7 @@
 package com.android.nbaapp.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import com.android.nbaapp.MainActivity
 import com.android.nbaapp.data.models.GamesPojo
 import com.android.nbaapp.data.services.GamesService
 import com.android.nbaapp.databinding.HomeFragmentBinding
+import com.android.nbaapp.ui.adapters.RecentGamesAdapter
 import com.android.nbaapp.ui.adapters.ViewPagerAdapter
 import dagger.android.support.DaggerFragment
 import retrofit2.Retrofit
@@ -18,12 +20,14 @@ class HomeFragment : DaggerFragment() {
     @Inject
    lateinit var retrofit:Retrofit
     lateinit var binding:HomeFragmentBinding
+//    @Inject lateinit var viewPagerAdapter: RecentGamesAdapter
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val b = retrofit.create(GamesService::class.java)
+
         binding = HomeFragmentBinding.inflate(inflater, container, false)
         setupTabLayout()
         return binding.root

@@ -1,9 +1,8 @@
-package com.android.nbaapp.di.modules
+package com.android.nbaapp.di
 
 import com.android.nbaapp.MainActivity
+import com.android.nbaapp.di.mainActivity.FragmentBuilder
 import dagger.Module
-import dagger.Subcomponent
-import dagger.android.AndroidInjector
 import dagger.android.ContributesAndroidInjector
 
 @Module

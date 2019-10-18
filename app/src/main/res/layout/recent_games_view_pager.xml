@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
+        <variable
+            name="games"
+            type="com.android.nbaapp.data.models.GamesPojo.Data" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -22,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/myriadpro"
-            android:text="STATUS"
+            android:text="@{games.status}"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/first_team_score"
             app:layout_constraintEnd_toStartOf="@+id/second_team_score"
@@ -34,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/myriadpro"
-            android:text="120"
+            android:text="@{games.home_team_score.toString()}"
             android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/first_team_image"
@@ -45,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/myriadpro"
-            android:text="105"
+            android:text="@{games.visitor_team_score.toString()}"
             android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="@+id/game_status"
             app:layout_constraintEnd_toStartOf="@+id/second_team_image"
@@ -57,7 +62,7 @@
             android:layout_height="wrap_content"
 
             android:fontFamily="@font/quicksand"
-            android:text="Bulls"
+            android:text="@{games.home_team.name}"
             app:layout_constraintEnd_toEndOf="@+id/first_team_image"
             app:layout_constraintHorizontal_bias="0.500"
             app:layout_constraintStart_toStartOf="@+id/first_team_image"
@@ -68,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand"
-            android:text="Jazz"
+            android:text="@{games.visitor_team.name}"
             app:layout_constraintEnd_toEndOf="@+id/second_team_image"
             app:layout_constraintStart_toEndOf="@+id/second_team_score"
             app:layout_constraintTop_toBottomOf="@+id/second_team_image" />

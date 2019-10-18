@@ -1,4 +1,4 @@
-package com.android.nbaapp.di.scopes
+package com.android.nbaapp.di.mainActivity.homeFragment
 
 import java.security.Policy
 import javax.inject.Scope

@@ -1,4 +1,4 @@
-package com.android.nbaapp.di.modules
+package com.android.nbaapp.di.mainActivity.homeFragment.newsFragment
 
 import com.android.nbaapp.data.repos.HomeRepository
 import dagger.Subcomponent

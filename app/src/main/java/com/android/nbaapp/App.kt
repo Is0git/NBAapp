@@ -1,13 +1,10 @@
 package com.android.nbaapp
 
 
-import android.util.Log
-import com.android.nbaapp.di.components.AppComponent
+import com.android.nbaapp.di.AppComponent
 import com.android.nbaapp.di.components.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
 import retrofit2.Retrofit
 import javax.inject.Inject
 

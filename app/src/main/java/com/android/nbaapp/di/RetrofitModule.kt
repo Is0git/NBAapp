@@ -1,4 +1,4 @@
-package com.android.nbaapp.di.modules
+package com.android.nbaapp.di
 
 import com.android.nbaapp.utils.url
 import dagger.Module

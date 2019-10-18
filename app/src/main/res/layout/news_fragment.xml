@@ -21,7 +21,10 @@
             android:minHeight="200dp"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="8dp">
-
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/games_viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
         </com.google.android.material.card.MaterialCardView>
 
 

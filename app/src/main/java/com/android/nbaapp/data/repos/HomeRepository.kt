@@ -7,9 +7,6 @@ import androidx.lifecycle.MutableLiveData
 import com.android.nbaapp.App
 import com.android.nbaapp.data.models.GamesPojo
 import com.android.nbaapp.data.services.GamesService
-import com.android.nbaapp.di.components.DaggerAppComponent
-import com.android.nbaapp.di.components.DaggerTestComponent
-import com.android.nbaapp.di.modules.RepositorySubComponent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking

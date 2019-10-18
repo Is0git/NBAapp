@@ -1,11 +1,8 @@
-package com.android.nbaapp.di.components
+package com.android.nbaapp.di
 
 import android.app.Application
 import com.android.nbaapp.App
-import com.android.nbaapp.data.repos.HomeRepository
-import com.android.nbaapp.di.modules.ActivityBuilder
-import com.android.nbaapp.di.modules.RepositorySubComponent
-import com.android.nbaapp.di.modules.RetrofitModule
+import com.android.nbaapp.di.mainActivity.homeFragment.newsFragment.RepositorySubComponent
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule

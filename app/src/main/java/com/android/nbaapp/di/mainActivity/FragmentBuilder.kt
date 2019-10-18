@@ -1,6 +1,5 @@
-package com.android.nbaapp.di.modules
+package com.android.nbaapp.di.mainActivity
 
-import com.android.nbaapp.di.scopes.HomeFragmentScope
 import com.android.nbaapp.ui.fragments.GamesFragment
 import com.android.nbaapp.ui.fragments.HomeFragment
 import com.android.nbaapp.ui.fragments.NewsFragment

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:background="@color/colorOnSecondary"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/first_team_image"
+            android:layout_width="110dp"
+            android:layout_height="71dp"
+            android:background="@drawable/no_photo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/game_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/myriadpro"
+            android:text="STATUS"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/first_team_score"
+            app:layout_constraintEnd_toStartOf="@+id/second_team_score"
+            app:layout_constraintStart_toEndOf="@+id/first_team_score"
+            app:layout_constraintTop_toTopOf="@+id/first_team_score" />
+
+        <TextView
+            android:id="@+id/first_team_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/myriadpro"
+            android:text="120"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/first_team_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/second_team_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/myriadpro"
+            android:text="105"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="@+id/game_status"
+            app:layout_constraintEnd_toStartOf="@+id/second_team_image"
+            app:layout_constraintTop_toTopOf="@+id/game_status" />
+
+        <TextView
+            android:id="@+id/first_team_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/quicksand"
+            android:text="Bulls"
+            app:layout_constraintEnd_toEndOf="@+id/first_team_image"
+            app:layout_constraintHorizontal_bias="0.500"
+            app:layout_constraintStart_toStartOf="@+id/first_team_image"
+            app:layout_constraintTop_toBottomOf="@+id/first_team_image" />
+
+        <TextView
+            android:id="@+id/second_team_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand"
+            android:text="Jazz"
+            app:layout_constraintEnd_toEndOf="@+id/second_team_image"
+            app:layout_constraintStart_toEndOf="@+id/second_team_score"
+            app:layout_constraintTop_toBottomOf="@+id/second_team_image" />
+
+
+        <ImageView
+            android:id="@+id/second_team_image"
+            android:layout_width="110dp"
+            android:layout_height="71dp"
+            android:background="@drawable/no_photo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

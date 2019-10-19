@@ -28,12 +28,11 @@ class NewsFragment : DaggerFragment() {
 
         binding = NewsFragmentBinding.inflate(inflater, container, false)
         homeViewModel = ViewModelProviders.of(activity!!, viewModelFactory).get(NewsViewModel::class.java)
-
-        homeViewModel.data.observe(viewLifecycleOwner, Observer {
+        binding.gamesViewPager.adapter = viewPagerAdapter
+        homeViewModel.data?.observe(viewLifecycleOwner, Observer {
             Log.d("TAG", "RES : ${it?.data?.get(0)?.date}")
-
-            binding.gamesViewPager.adapter = viewPagerAdapter})
-//        Log.d("TAG", "${viewPagerAdapter.count}")
+                viewPagerAdapter.setData(it)
+            })
         return binding.root
     }
 }

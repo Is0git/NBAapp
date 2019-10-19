@@ -24,7 +24,7 @@
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/games_viewPager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="200dp"/>
         </com.google.android.material.card.MaterialCardView>
 
 

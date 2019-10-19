@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.android.nbaapp.data.vms.NewsViewModel
 import com.android.nbaapp.data.vms.ViewModelFactory
@@ -16,23 +15,25 @@ import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
 class NewsFragment : DaggerFragment() {
-    lateinit var homeViewModel: NewsViewModel
+    lateinit var newsViewModel: NewsViewModel
     lateinit var binding: NewsFragmentBinding
-    @Inject lateinit var viewPagerAdapter:RecentGamesAdapter
-    @Inject lateinit var viewModelFactory: ViewModelFactory
+    @Inject
+    lateinit var factory: ViewModelFactory
+    @Inject
+    lateinit var viewPagerAdapter: RecentGamesAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = NewsFragmentBinding.inflate(inflater, container, false)
-        homeViewModel = ViewModelProviders.of(activity!!, viewModelFactory).get(NewsViewModel::class.java)
+        newsViewModel = ViewModelProviders.of(activity!!, factory).get(NewsViewModel::class.java)
         binding.gamesViewPager.adapter = viewPagerAdapter
-        homeViewModel.data?.observe(viewLifecycleOwner, Observer {
+        newsViewModel.data.observe(viewLifecycleOwner, Observer {
             Log.d("TAG", "RES : ${it?.data?.get(0)?.date}")
-                viewPagerAdapter.setData(it)
-            })
+            viewPagerAdapter.setData(it)
+        })
         return binding.root
     }
 }

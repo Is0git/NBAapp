@@ -9,10 +9,8 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Database(entities = [NewsEntity::class], version = 1, exportSchema = true)
-@Singleton
-abstract class Database @Inject constructor(application: Application) : RoomDatabase() {
+
+abstract class MainDatabase  : RoomDatabase() {
     abstract fun NewsDao() : NewsDao
-    init {
-        Room.databaseBuilder(application, com.android.nbaapp.data.db.Database::class.java,  "main_database").fallbackToDestructiveMigration().build()
-    }
+
 }

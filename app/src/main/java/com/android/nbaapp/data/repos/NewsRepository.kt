@@ -1,23 +1,21 @@
 package com.android.nbaapp.data.repos
 
-import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.android.nbaapp.App
+import com.android.nbaapp.data.db.MainDatabase
+import com.android.nbaapp.data.db.enitities.NewsEntity
 import com.android.nbaapp.data.models.GamesPojo
 import com.android.nbaapp.data.services.GamesService
-import com.android.nbaapp.di.mainActivity.homeFragment.HomeFragmentScope
 import com.android.nbaapp.di.mainActivity.homeFragment.newsFragment.NewsFragmentScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import retrofit2.Retrofit
 import javax.inject.Inject
-import javax.inject.Singleton
 
 @NewsFragmentScope
-class NewsRepository @Inject constructor(val retrofit: Retrofit) {
+class NewsRepository @Inject constructor(var retrofit: Retrofit, var database: MainDatabase) {
     init {
         Log.d("SSS", "res: $retrofit")
     }
@@ -37,4 +35,8 @@ class NewsRepository @Inject constructor(val retrofit: Retrofit) {
         }
         return@runBlocking games
     }
+
+    fun getAllNews() : LiveData<List<NewsEntity>> = database.NewsDao().getNews()
+
+    suspend fun addNews(newsEntity: NewsEntity) = database.NewsDao().addNews(newsEntity)
 }

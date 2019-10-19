@@ -44,14 +44,6 @@ class RecentGamesAdapter @Inject constructor(@ActivityContextQualifier val conte
         notifyDataSetChanged()
     }
 
-    override fun restoreState(state: Parcelable?, loader: ClassLoader?) {
-        super.restoreState(state, loader)
-    }
-
-    override fun notifyDataSetChanged() {
-        super.notifyDataSetChanged()
-    }
-
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         container.removeView(`object` as View)
     }

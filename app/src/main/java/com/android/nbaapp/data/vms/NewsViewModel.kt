@@ -1,14 +1,13 @@
 package com.android.nbaapp.data.vms
 
 import androidx.lifecycle.ViewModel
-import com.android.nbaapp.data.repos.HomeRepository
+import com.android.nbaapp.data.repos.NewsRepository
 import retrofit2.Retrofit
 import javax.inject.Inject
 
-class NewsViewModel @Inject constructor(val retrofit: Retrofit) : ViewModel() {
-    init {
-        HomeRepository.invoke(retrofit)
-    }
+class NewsViewModel @Inject constructor(repository: NewsRepository) : ViewModel() {
 
-    val data = HomeRepository.repo?.getGames()
+
+    val data = repository.getGames()
+
 }

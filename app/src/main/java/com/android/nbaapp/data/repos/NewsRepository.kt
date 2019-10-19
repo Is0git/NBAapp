@@ -7,6 +7,8 @@ import androidx.lifecycle.MutableLiveData
 import com.android.nbaapp.App
 import com.android.nbaapp.data.models.GamesPojo
 import com.android.nbaapp.data.services.GamesService
+import com.android.nbaapp.di.mainActivity.homeFragment.HomeFragmentScope
+import com.android.nbaapp.di.mainActivity.homeFragment.newsFragment.NewsFragmentScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -14,10 +16,11 @@ import retrofit2.Retrofit
 import javax.inject.Inject
 import javax.inject.Singleton
 
-
-class HomeRepository(val retrofit: Retrofit) {
-
-
+@NewsFragmentScope
+class NewsRepository @Inject constructor(val retrofit: Retrofit) {
+    init {
+        Log.d("SSS", "res: $retrofit")
+    }
     val games = MutableLiveData<GamesPojo.SeasonGames>()
 
      fun getGames(): LiveData<GamesPojo.SeasonGames> = runBlocking {
@@ -33,16 +36,5 @@ class HomeRepository(val retrofit: Retrofit) {
 
         }
         return@runBlocking games
-    }
-
-    companion object {
-        var repo: HomeRepository? = null
-
-        operator fun invoke(retrofit: Retrofit) = repo ?: init(retrofit)
-
-        fun init(retrofit: Retrofit) : HomeRepository {
-            repo = HomeRepository(retrofit)
-            return repo!!
-        }
     }
 }

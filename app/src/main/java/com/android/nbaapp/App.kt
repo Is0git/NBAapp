@@ -1,6 +1,7 @@
 package com.android.nbaapp
 
 
+import android.util.Log
 import com.android.nbaapp.di.AppComponent
 import com.android.nbaapp.di.DaggerAppComponent
 import dagger.android.AndroidInjector
@@ -16,5 +17,9 @@ class App : DaggerApplication() {
         return DaggerAppComponent.builder().application(this).build().also { app = it }
     }
 
+    override fun onCreate() {
+        super.onCreate()
+        Log.d("SSS", "LOLO: $test")
+    }
 
 }

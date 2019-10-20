@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetStart="@layout/news_fragment"
+        motion:constraintSetEnd="@layout/news_fragment_end"
+        motion:duration="5000">
+        <OnSwipe
+            motion:dragDirection="dragUp"
+            motion:dragScale="10"
+            motion:touchAnchorId="@+id/topCard"
+            motion:touchAnchorSide="bottom" />
+    </Transition>
+
+</MotionScene>

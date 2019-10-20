@@ -2,7 +2,7 @@ package com.android.nbaapp.di.mainActivity.homeFragment.newsFragment
 
 import androidx.lifecycle.ViewModel
 import com.android.nbaapp.data.vms.NewsViewModel
-import com.android.nbaapp.di.mainActivity.ViewModelKey
+import com.android.nbaapp.di.ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

@@ -1,4 +1,4 @@
-package com.android.nbaapp.di.mainActivity
+package com.android.nbaapp.di
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

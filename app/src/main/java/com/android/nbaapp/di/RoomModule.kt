@@ -1,4 +1,4 @@
-package com.android.nbaapp.di.mainActivity
+package com.android.nbaapp.di
 
 import android.app.Application
 import androidx.room.Room
@@ -13,5 +13,5 @@ object RoomModule {
     @Provides
     @JvmStatic
     @Singleton
-    fun getDatabase(application: Application) : MainDatabase =  Room.databaseBuilder(application, MainDatabase::class.java,  "main_database").fallbackToDestructiveMigration().build()
+    fun getDatabase(application: Application) : MainDatabase = synchronized(this) { Room.databaseBuilder(application, MainDatabase::class.java,  "main_database").fallbackToDestructiveMigration().build()}
 }

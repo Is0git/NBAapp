@@ -31,7 +31,6 @@ class NewsRepository @Inject constructor(var retrofit: Retrofit, var database: M
                     "Something went wrong: ${message()}"
                 )
             }
-
         }
         return@runBlocking games
     }

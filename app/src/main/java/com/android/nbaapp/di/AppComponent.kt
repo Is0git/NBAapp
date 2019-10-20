@@ -2,8 +2,6 @@ package com.android.nbaapp.di
 
 import android.app.Application
 import com.android.nbaapp.App
-import com.android.nbaapp.di.mainActivity.RoomModule
-import com.android.nbaapp.di.mainActivity.homeFragment.newsFragment.RepositorySubComponent
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule

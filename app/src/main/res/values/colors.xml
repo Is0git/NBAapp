@@ -5,4 +5,5 @@
     <color name="colorAccent">#01304D</color>
     <color name="surfaceColor">#F0F0F0</color>
     <color name="colorOnSecondary">#ffffff</color>
+    <color name="colorTextDark">#272727</color>
 </resources>

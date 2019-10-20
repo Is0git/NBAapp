@@ -22,7 +22,6 @@ class RecentGamesAdapter @Inject constructor(@ActivityContextQualifier val conte
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        Log.d("TAG", "ROTTEN")
          recentGamesViewPagerBinding = RecentGamesViewPagerBinding.inflate(LayoutInflater.from(context), container, false)
         val item = games?.data?.get(position)
         recentGamesViewPagerBinding.games = item
@@ -32,7 +31,6 @@ class RecentGamesAdapter @Inject constructor(@ActivityContextQualifier val conte
     }
 
     override fun getCount(): Int {
-        Log.d("TAG", "size: ${games?.data?.size}")
         if(games != null) {
             return games!!.data!!.size
         }

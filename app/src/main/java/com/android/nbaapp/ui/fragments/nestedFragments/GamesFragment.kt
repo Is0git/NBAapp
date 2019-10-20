@@ -1,4 +1,4 @@
-package com.android.nbaapp.ui.fragments
+package com.android.nbaapp.ui.fragments.nestedFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

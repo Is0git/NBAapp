@@ -1,13 +1,8 @@
-package com.android.nbaapp
+package com.android.nbaapp.ui.activities
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.android.nbaapp.data.services.GamesService
+import com.android.nbaapp.R
 import dagger.android.support.DaggerAppCompatActivity
-import retrofit2.Retrofit
-import javax.inject.Inject
 
 class MainActivity : DaggerAppCompatActivity() {
 
@@ -15,4 +10,6 @@ class MainActivity : DaggerAppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+
+
 }

@@ -1,8 +1,7 @@
 package com.android.nbaapp.di.mainActivity
 
 import android.content.Context
-import com.android.nbaapp.MainActivity
-import com.android.nbaapp.di.mainActivity.homeFragment.HomeFragmentScope
+import com.android.nbaapp.ui.activities.MainActivity
 import dagger.Module
 import dagger.Provides
 

@@ -1,4 +1,4 @@
-package com.android.nbaapp.ui.fragments
+package com.android.nbaapp.ui.fragments.nestedFragments
 
 import android.os.Bundle
 import android.util.Log
@@ -7,20 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.android.nbaapp.data.db.enitities.NewsEntity
 import com.android.nbaapp.data.vms.NewsViewModel
 import com.android.nbaapp.data.vms.ViewModelFactory
 import com.android.nbaapp.databinding.NewsFragmentBinding
+import com.android.nbaapp.ui.adapters.NewsListAdapter
 import com.android.nbaapp.ui.adapters.RecentGamesAdapter
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
 class NewsFragment : DaggerFragment() {
-    lateinit var newsViewModel: NewsViewModel
+    private lateinit var newsViewModel: NewsViewModel
     lateinit var binding: NewsFragmentBinding
     @Inject
     lateinit var factory: ViewModelFactory
     @Inject
     lateinit var viewPagerAdapter: RecentGamesAdapter
+    @Inject
+    lateinit var newsListAdapter: NewsListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,12 +32,15 @@ class NewsFragment : DaggerFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = NewsFragmentBinding.inflate(inflater, container, false)
+        binding.listRecyclerview.adapter = newsListAdapter
         newsViewModel = ViewModelProviders.of(activity!!, factory).get(NewsViewModel::class.java)
         binding.gamesViewPager.adapter = viewPagerAdapter
         newsViewModel.data.observe(viewLifecycleOwner, Observer {
-            Log.d("TAG", "RES : ${it?.data?.get(0)?.date}")
             viewPagerAdapter.setData(it)
         })
+        newsViewModel.news.observe(viewLifecycleOwner, Observer {
+            newsListAdapter.submitList(it)
+        Log.d("BOD", "RES: $it")})
         return binding.root
     }
 }

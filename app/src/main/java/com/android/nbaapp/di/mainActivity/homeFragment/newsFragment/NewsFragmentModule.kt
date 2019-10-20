@@ -1,10 +1,5 @@
 package com.android.nbaapp.di.mainActivity.homeFragment.newsFragment
 
-import android.content.Context
-import androidx.lifecycle.ViewModelProviders
-import com.android.nbaapp.MainActivity
-import com.android.nbaapp.data.vms.NewsViewModel
-import com.android.nbaapp.data.vms.ViewModelFactory
 import dagger.Module
 import dagger.Provides
 

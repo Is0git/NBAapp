@@ -1,16 +1,12 @@
 package com.android.nbaapp.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentPagerAdapter
-import com.android.nbaapp.MainActivity
-import com.android.nbaapp.data.models.GamesPojo
 import com.android.nbaapp.data.services.GamesService
 import com.android.nbaapp.databinding.HomeFragmentBinding
-import com.android.nbaapp.ui.adapters.RecentGamesAdapter
 import com.android.nbaapp.ui.adapters.ViewPagerAdapter
 import dagger.android.support.DaggerFragment
 import retrofit2.Retrofit

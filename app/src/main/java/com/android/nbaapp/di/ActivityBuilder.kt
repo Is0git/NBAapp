@@ -1,6 +1,6 @@
 package com.android.nbaapp.di
 
-import com.android.nbaapp.MainActivity
+import com.android.nbaapp.ui.activities.MainActivity
 import com.android.nbaapp.di.mainActivity.FragmentBuilder
 import com.android.nbaapp.di.mainActivity.MainActivityModule
 import com.android.nbaapp.di.mainActivity.MainActivityScope

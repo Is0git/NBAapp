@@ -28,19 +28,17 @@
         </com.google.android.material.card.MaterialCardView>
 
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/middCard"
-            style="@style/Widget.MaterialComponents.CardView"
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/list_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="2500dp"
-            android:layout_marginLeft="@dimen/mtrl_card_spacing"
-            android:layout_marginTop="@dimen/mtrl_card_spacing"
-            android:layout_marginRight="@dimen/mtrl_card_spacing"
-            android:minHeight="200dp"
+            android:layout_height="500dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@id/topCard"
             tools:layout_editor_absoluteX="8dp">
 
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.recyclerview.widget.RecyclerView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

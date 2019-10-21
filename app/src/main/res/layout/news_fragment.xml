@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
         android:layout_width="match_parent"
+        app:layoutDescription="@xml/motion_scene"
+        app:showPaths="true"
         android:layout_height="match_parent">
 
         <com.google.android.material.card.MaterialCardView
@@ -23,7 +25,7 @@
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/games_viewPager"
                 android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                android:layout_height="256dp" />
         </com.google.android.material.card.MaterialCardView>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -38,5 +40,5 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

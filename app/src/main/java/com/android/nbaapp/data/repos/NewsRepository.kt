@@ -38,4 +38,8 @@ class NewsRepository @Inject constructor(var retrofit: Retrofit, var database: M
     fun getAllNews() : LiveData<List<NewsEntity>> = database.NewsDao().getNews()
 
     suspend fun addNews(newsEntity: NewsEntity) = database.NewsDao().addNews(newsEntity)
+
+    suspend fun deleteAll() {
+        database.NewsDao().deleteAll()
+    }
 }

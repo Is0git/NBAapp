@@ -17,4 +17,8 @@ class NewsViewModel @Inject constructor(private val repository: NewsRepository) 
     val news = repository.getAllNews()
 
     fun addNews(newsEntity: NewsEntity) = viewModelScope.launch { repository.addNews(newsEntity) }
+
+    fun deleteNews() = viewModelScope.launch { repository.deleteAll() }
+
+
 }

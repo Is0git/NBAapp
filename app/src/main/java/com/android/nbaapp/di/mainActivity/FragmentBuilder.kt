@@ -3,6 +3,8 @@ package com.android.nbaapp.di.mainActivity
 import com.android.nbaapp.di.mainActivity.homeFragment.ChildFragmentBuilder
 import com.android.nbaapp.di.mainActivity.homeFragment.HomeFragmentScope
 import com.android.nbaapp.di.mainActivity.homeFragment.HomeModule
+import com.android.nbaapp.di.mainActivity.homeFragment.addFragment.AddFragmentScope
+import com.android.nbaapp.di.mainActivity.homeFragment.addFragment.AddViewModelModule
 import com.android.nbaapp.di.mainActivity.homeFragment.allGamesFragment.AllGamesScope
 import com.android.nbaapp.di.mainActivity.homeFragment.newsFragment.HomeViewModelModule
 import com.android.nbaapp.ui.fragments.nestedFragments.GamesFragment
@@ -17,7 +19,8 @@ abstract class FragmentBuilder {
     @ContributesAndroidInjector(modules = [ChildFragmentBuilder::class, HomeViewModelModule::class, HomeModule::class])
     abstract fun HomeFragment() : HomeFragment
 
-    @ContributesAndroidInjector
+    @AddFragmentScope
+    @ContributesAndroidInjector(modules = [AddViewModelModule::class])
     abstract fun addFragment() : AddFragment
 
 

@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
@@ -13,11 +15,17 @@ import com.android.nbaapp.R
 import com.android.nbaapp.data.vms.HomeViewModel
 import com.android.nbaapp.data.vms.ViewModelFactory
 import com.android.nbaapp.databinding.HomeFragmentBinding
+import com.android.nbaapp.ui.activities.MainActivity
 import com.android.nbaapp.ui.adapters.ViewPagerAdapter
+import com.android.nbaapp.utils.FragmentsComs
+import com.google.android.material.behavior.HideBottomViewOnScrollBehavior
+import com.google.android.material.bottomappbar.BottomAppBar
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-class HomeFragment : DaggerFragment() {
+class HomeFragment : DaggerFragment(), FragmentsComs {
+
+
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
     @Inject
@@ -33,8 +41,10 @@ class HomeFragment : DaggerFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = HomeFragmentBinding.inflate(inflater, container, false)
-        homeViewModel = ViewModelProviders.of(activity!!, viewModelFactory).get(HomeViewModel::class.java)
+        homeViewModel =
+            ViewModelProviders.of(activity!!, viewModelFactory).get(HomeViewModel::class.java)
         setupTabLayout()
+
         binding.bar.setOnMenuItemClickListener {
             if (it.itemId == R.id.home) homeViewModel.deleteAllNews()
             true
@@ -60,7 +70,8 @@ class HomeFragment : DaggerFragment() {
                 removeFabOnSecondChildFragment(position)
             }
         })
-
+        //Pass interface to activity -> fragments
+        (activity as MainActivity).fragmentsComs = this
         return binding.root
     }
 
@@ -80,9 +91,16 @@ class HomeFragment : DaggerFragment() {
             binding.bar.replaceMenu(R.menu.menu)
         } else {
             binding.fab.hide()
+            showBottomBar()
             binding.bar.replaceMenu(R.menu.menu2)
         }
+    }
 
+    override fun hideBottomBar() {
+        binding.bar.visibility = INVISIBLE
+    }
 
+    override fun showBottomBar() {
+        binding.bar.visibility = VISIBLE
     }
 }

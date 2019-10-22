@@ -1,21 +1,13 @@
 package com.android.nbaapp.di.mainActivity.homeFragment.newsFragment
 
+import com.android.nbaapp.ui.fragments.nestedFragments.AddFragment
 import dagger.Module
 import dagger.Provides
+import dagger.android.ContributesAndroidInjector
 
 @Module
-object NewsFragmentModule {
+abstract class NewsFragmentModule {
 
-    @Provides
-    @NewsFragmentScope
-    @JvmStatic
-    fun getText() : String = "hihi"
 
-//    @Provides
-//    @NewsFragmentScope
-//    @JvmStatic
-//    fun getNewsViewModel(viewModelFactory: ViewModelFactory, mainActivity: MainActivity) : NewsViewModel {
-//        return ViewModelProviders.of(mainActivity, viewModelFactory).get(NewsViewModel::class.java)
-//    }
 
 }

@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.viewpager.widget.ViewPager
 import com.android.nbaapp.R
 import com.android.nbaapp.data.vms.HomeViewModel
@@ -16,11 +18,13 @@ import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
 class HomeFragment : DaggerFragment() {
-    @Inject lateinit var viewModelFactory:ViewModelFactory
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
     @Inject
     lateinit var viewPagerAdapter: ViewPagerAdapter
+    lateinit var navigator: NavController
     lateinit var homeViewModel: HomeViewModel
-    lateinit var binding:HomeFragmentBinding
+    lateinit var binding: HomeFragmentBinding
 
 
     override fun onCreateView(
@@ -29,12 +33,14 @@ class HomeFragment : DaggerFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = HomeFragmentBinding.inflate(inflater, container, false)
-    homeViewModel = ViewModelProviders.of(activity!!, viewModelFactory ).get(HomeViewModel::class.java)
+        homeViewModel = ViewModelProviders.of(activity!!, viewModelFactory).get(HomeViewModel::class.java)
         setupTabLayout()
-    binding.bar.setOnMenuItemClickListener {
-        if (it.itemId == R.id.home) homeViewModel.deleteAllNews()
-        true
-    }
+        binding.bar.setOnMenuItemClickListener {
+            if (it.itemId == R.id.home) homeViewModel.deleteAllNews()
+            true
+        }
+
+        binding.fab.setOnClickListener { navigator.navigate(R.id.action_homeFragment_to_addFragment) }
 
         binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
@@ -52,11 +58,14 @@ class HomeFragment : DaggerFragment() {
             override fun onPageSelected(position: Int) {
                 Log.d("CHANGED", "SDSD")
                 removeFabOnSecondChildFragment(position)
-
             }
         })
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        navigator = Navigation.findNavController(view)
     }
 
     private fun setupTabLayout() {
@@ -67,6 +76,7 @@ class HomeFragment : DaggerFragment() {
     private fun removeFabOnSecondChildFragment(position: Int) {
         if (position == 0) {
             binding.fab.show()
+            binding.bar.hideOnScroll
             binding.bar.replaceMenu(R.menu.menu)
         } else {
             binding.fab.hide()

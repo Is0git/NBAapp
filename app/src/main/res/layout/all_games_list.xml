@@ -1,25 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable
-            name="item"
+            name="games"
             type="com.android.nbaapp.data.models.GamesPojo.Data" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:background="@color/colorPrimary"
-        android:layout_height="200dp">
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{item.date}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/cardview_default_elevation"
+        android:layout_marginLeft="@dimen/mtrl_card_spacing"
+        android:layout_marginTop="@dimen/mtrl_card_spacing"
+        android:layout_marginRight="@dimen/mtrl_card_spacing">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="10dp"
+            android:background="@drawable/gradient2"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/first_team_image"
+                android:layout_width="110dp"
+                android:layout_height="71dp"
+                android:background="@drawable/no_photo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/game_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/myriadpro"
+                android:text="@{games.status}"
+                android:textColor="@color/surfaceColor"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/first_team_score"
+                app:layout_constraintEnd_toStartOf="@+id/second_team_score"
+                app:layout_constraintStart_toEndOf="@+id/first_team_score"
+                app:layout_constraintTop_toTopOf="@+id/first_team_score" />
+
+            <TextView
+                android:id="@+id/first_team_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/myriadpro"
+                android:textColor="@color/surfaceColor"
+                android:text="@{games.home_team_score.toString()}"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/first_team_image"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/second_team_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/surfaceColor"
+                android:fontFamily="@font/myriadpro"
+                android:text="@{games.visitor_team_score.toString()}"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="@+id/game_status"
+                app:layout_constraintEnd_toStartOf="@+id/second_team_image"
+                app:layout_constraintTop_toTopOf="@+id/game_status" />
+
+            <TextView
+                android:id="@+id/first_team_name"
+                android:layout_width="wrap_content"
+                android:textColor="@color/surfaceColor"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="@font/quicksand"
+                android:text="@{games.home_team.name}"
+                app:layout_constraintEnd_toEndOf="@+id/first_team_image"
+                app:layout_constraintHorizontal_bias="0.500"
+                app:layout_constraintStart_toStartOf="@+id/first_team_image"
+                app:layout_constraintTop_toBottomOf="@+id/first_team_image" />
+
+            <TextView
+                android:id="@+id/second_team_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/surfaceColor"
+                android:fontFamily="@font/quicksand"
+                android:text="@{games.visitor_team.name}"
+                app:layout_constraintEnd_toEndOf="@+id/second_team_image"
+                app:layout_constraintStart_toEndOf="@+id/second_team_score"
+                app:layout_constraintTop_toBottomOf="@+id/second_team_image" />
+
+
+            <ImageView
+                android:id="@+id/second_team_image"
+                android:layout_width="110dp"
+                android:layout_height="71dp"
+                android:background="@drawable/no_photo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

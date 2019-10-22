@@ -1,5 +1,6 @@
 package com.android.nbaapp.di.mainActivity.homeFragment
 
+import com.android.nbaapp.di.mainActivity.homeFragment.allGamesFragment.AllGamesScope
 import com.android.nbaapp.di.mainActivity.homeFragment.allGamesFragment.GamesViewModelsModule
 import com.android.nbaapp.di.mainActivity.homeFragment.newsFragment.NewsFragmentModule
 import com.android.nbaapp.di.mainActivity.homeFragment.newsFragment.NewsFragmentScope
@@ -16,5 +17,6 @@ abstract class ChildFragmentBuilder {
     abstract fun NewsFragment() : NewsFragment
 
     @ContributesAndroidInjector(modules = [GamesViewModelsModule::class])
+    @AllGamesScope
     abstract fun allGamesFragment() : GamesFragment
 }

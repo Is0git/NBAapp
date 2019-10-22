@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android.nbaapp.data.models.GamesPojo
 import com.android.nbaapp.databinding.AllGamesListBinding
-
-class GamesListAdapter : PagedListAdapter<GamesPojo.Data, GamesListAdapter.MyViewHolder>(callback) {
+import com.android.nbaapp.di.mainActivity.homeFragment.allGamesFragment.AllGamesScope
+import javax.inject.Inject
+@AllGamesScope
+class GamesListAdapter @Inject constructor(): PagedListAdapter<GamesPojo.Data, GamesListAdapter.MyViewHolder>(callback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = AllGamesListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
@@ -16,7 +18,7 @@ class GamesListAdapter : PagedListAdapter<GamesPojo.Data, GamesListAdapter.MyVie
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = getItem(position)
-        holder.binding.item = item
+        holder.binding.games = item
     }
 
     class MyViewHolder(val binding: AllGamesListBinding) : RecyclerView.ViewHolder(binding.root) {

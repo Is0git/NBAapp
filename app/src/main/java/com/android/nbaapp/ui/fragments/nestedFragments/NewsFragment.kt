@@ -38,6 +38,7 @@ class NewsFragment : DaggerFragment() {
         newsViewModel.data.observe(viewLifecycleOwner, Observer {
             viewPagerAdapter.setData(it)
         })
+        newsViewModel.addNews(NewsEntity("Something", "https://thenypost.files.wordpress.com/2019/09/nba.jpg?quality=90&strip=all&w=618&h=410&crop=1", "Very importaant stuff"))
         newsViewModel.news.observe(viewLifecycleOwner, Observer {
             newsListAdapter.submitList(it)
         Log.d("BOD", "RES: $it")})

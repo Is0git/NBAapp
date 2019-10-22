@@ -13,4 +13,9 @@ interface NewsDao {
 
     @Insert
     suspend fun addNews(newsEntity: NewsEntity)
+
+    @Query("DELETE FROM NEWS_TABLE")
+
+    suspend fun deleteAll()
+
 }

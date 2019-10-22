@@ -25,7 +25,7 @@ class NewsRepository @Inject constructor(var retrofit: Retrofit, var database: M
         val service = retrofit.create(GamesService::class.java)
         launch(Dispatchers.IO) {
             service.getGames(
-                "2019").apply {
+                "2020").apply {
                 if (isSuccessful) games.postValue(body()) else Log.d(
                     "TAG",
                     "Something went wrong: ${message()}"

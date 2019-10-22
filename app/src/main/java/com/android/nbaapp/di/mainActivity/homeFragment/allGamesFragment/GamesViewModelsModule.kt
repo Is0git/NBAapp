@@ -11,6 +11,7 @@ import dagger.multibindings.IntoMap
 abstract class GamesViewModelsModule {
     @Binds
     @IntoMap
+    @AllGamesScope
     @ViewModelKey(AllGamesViewModel::class)
     protected abstract fun bindGamesViewModel(viewModel: AllGamesViewModel) : ViewModel
 }

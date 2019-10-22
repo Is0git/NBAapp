@@ -21,6 +21,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                loadImage="@{data.image_url}"
                 android:src="@drawable/no_photo"/>
             <TextView
                 android:layout_width="wrap_content"

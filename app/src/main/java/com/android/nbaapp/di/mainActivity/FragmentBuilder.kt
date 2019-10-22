@@ -11,8 +11,5 @@ abstract class FragmentBuilder {
     @ContributesAndroidInjector(modules = [ChildFragmentBuilder::class])
     abstract fun HomeFragment() : HomeFragment
 
-    @ContributesAndroidInjector
-    abstract fun GamesFragment() : GamesFragment
-
 
 }

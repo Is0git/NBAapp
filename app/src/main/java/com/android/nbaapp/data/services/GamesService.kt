@@ -14,7 +14,11 @@ interface GamesService {
     @GET("games")
     suspend fun  getGames(
         @Query("Seasons") season_year: String,
+        @Query("page") page:String = "0",
+        @Query("per_page") page_size:String = "25",
         @Header("X-RapidAPI-Host") host: String = header_host,
         @Header("X-RapidAPI-Key") key: String = header_key
     ) : Response<GamesPojo.SeasonGames>
+
+
 }

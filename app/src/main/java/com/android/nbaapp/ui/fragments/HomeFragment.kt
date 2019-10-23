@@ -85,11 +85,9 @@ class HomeFragment : DaggerFragment(), FragmentsComs {
     private fun removeFabOnSecondChildFragment(position: Int) {
         if (position == 0) {
             binding.fab.show()
-            binding.bar.hideOnScroll
             binding.bar.replaceMenu(R.menu.menu)
         } else {
             binding.fab.hide()
-            showBottomBar()
             binding.bar.replaceMenu(R.menu.menu2)
         }
     }
@@ -104,18 +102,4 @@ class HomeFragment : DaggerFragment(), FragmentsComs {
         binding.fab.show()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("SAATE", "HOME DESTOY")
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        Log.d("SAATE", "HOME VIEW DESTROY")
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        Log.d("SAATE", "HOME DETACHED")
-    }
 }

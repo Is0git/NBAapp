@@ -93,18 +93,4 @@ class NewsFragment : DaggerFragment(), NewsClickHandler<NewsEntity> {
         navigator.navigate(R.id.action_homeFragment_to_singleNewsFragment, bundle, null, extras)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("SAATE", "NEWS DESTOY")
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        Log.d("SAATE", "NEWS VIEW DESTROY")
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        Log.d("SAATE", "NEWS DETACHED")
-    }
 }

@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<data>
-    <variable
-        name="onAddHandler"
-        type="com.android.nbaapp.ui.fragments.nestedFragments.AddFragment" />
-    <variable
-        name="handlers"
-        type="com.android.nbaapp.utils.MyHandlers" />
-</data>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <com.google.android.material.card.MaterialCardView
+    <data>
+
+        <variable
+            name="onAddHandler"
+            type="com.android.nbaapp.ui.fragments.nestedFragments.AddFragment" />
+
+        <variable
+            name="handlers"
+            type="com.android.nbaapp.utils.MyHandlers" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/surfaceColor"
+        android:minHeight="200dp"
+        android:orientation="vertical">
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
-            android:background="@color/surfaceColor"
-            android:minHeight="200dp"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -38,9 +42,9 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/title_text"
-                        android:singleLine="true"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,8 +73,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/image_url_text"
                         android:layout_width="match_parent"
-                        android:singleLine="true"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -83,8 +87,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/subtext_text"
                         android:layout_width="match_parent"
-                        android:singleLine="true"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -98,8 +102,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/user_image_text"
                         android:layout_width="match_parent"
-                        android:singleLine="true"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:singleLine="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.button.MaterialButton
@@ -119,8 +123,8 @@
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </com.google.android.material.card.MaterialCardView>
 
-        </com.google.android.material.card.MaterialCardView>
-    </ScrollView>
 
 </layout>

@@ -20,4 +20,7 @@ interface NewsDao {
 
     @Query("SELECT * FROM NEWS_TABLE WHERE id == (:newsId)")
     fun getSingleNews(newsId:Int?) : LiveData<NewsEntity>
+
+    @Query( "UPDATE news_table SET isFavorite = (:favRes) WHERE id == (:id)")
+    suspend fun setFavorite(favRes:Boolean, id:Int)
 }

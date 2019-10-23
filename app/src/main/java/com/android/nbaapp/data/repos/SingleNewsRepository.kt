@@ -8,4 +8,8 @@ class SingleNewsRepository @Inject constructor(private val database: MainDatabas
 
     fun getSingleNews(id:Int?) = database.NewsDao().getSingleNews(id)
 
+    suspend fun setFav(fav:Boolean, id:Int){
+        database.NewsDao().setFavorite(fav, id)
+    }
+
 }

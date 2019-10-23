@@ -12,6 +12,7 @@ import com.android.nbaapp.data.vms.SingleNewsViewModel
 import com.android.nbaapp.data.vms.ViewModelFactory
 import com.android.nbaapp.databinding.SingleNewsFragmentBinding
 import dagger.android.support.DaggerFragment
+import kotlinx.android.synthetic.main.single_news_fragment.*
 import javax.inject.Inject
 
 class SingleNewsFragment : DaggerFragment() {
@@ -44,6 +45,7 @@ class SingleNewsFragment : DaggerFragment() {
             viewModel = viewmodel
 
         }
+
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

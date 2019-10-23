@@ -30,7 +30,7 @@
             <ImageView
                 android:id="@+id/news_image"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="220dp"
                 loadImage="@{data.image_url}"
                 android:transitionName="imageTransition"
                 android:src="@drawable/no_photo"/>

@@ -11,6 +11,6 @@ object HomeModule {
     @Provides
     @HomeFragmentScope
     @JvmStatic
-    fun getViewPagerAdapter(homeFragment: HomeFragment) : ViewPagerAdapter = ViewPagerAdapter(homeFragment.childFragmentManager, FragmentPagerAdapter.POSITION_UNCHANGED)
+    fun getViewPagerAdapter(homeFragment: HomeFragment) : ViewPagerAdapter = ViewPagerAdapter(homeFragment.childFragmentManager, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
 
 }

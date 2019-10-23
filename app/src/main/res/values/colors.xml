@@ -7,4 +7,5 @@
     <color name="colorOnSecondary">#ffffff</color>
     <color name="colorTextDark">#272727</color>
     <color name="red">#FF0000</color>
+    <color name="greyMed">#E9E9E9</color>
 </resources>

@@ -10,7 +10,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:background="@color/colorOnSecondary"
+        android:background="@drawable/grey_gradient"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -27,8 +27,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/myriadpro"
-            android:text="@{games.status}"
+            android:text="@{games.status.toUpperCase()}"
             android:textSize="15sp"
+            android:textColor="@color/colorTextDark"
             app:layout_constraintBottom_toBottomOf="@+id/first_team_score"
             app:layout_constraintEnd_toStartOf="@+id/second_team_score"
             app:layout_constraintStart_toEndOf="@+id/first_team_score"
@@ -39,8 +40,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/myriadpro"
+            android:textColor="@color/colorPrimary"
             android:text="@{games.home_team_score.toString()}"
-            android:textSize="25sp"
+            android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/first_team_image"
             app:layout_constraintTop_toTopOf="parent" />
@@ -50,8 +52,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/myriadpro"
+            android:textColor="@color/colorPrimary"
             android:text="@{games.visitor_team_score.toString()}"
-            android:textSize="25sp"
+            android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="@+id/game_status"
             app:layout_constraintEnd_toStartOf="@+id/second_team_image"
             app:layout_constraintTop_toTopOf="@+id/game_status" />

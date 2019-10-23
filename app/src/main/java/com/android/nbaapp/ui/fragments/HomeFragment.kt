@@ -98,9 +98,11 @@ class HomeFragment : DaggerFragment(), FragmentsComs {
 
     override fun hideBottomBar() {
         binding.bar.visibility = INVISIBLE
+        binding.fab.hide()
     }
 
     override fun showBottomBar() {
         binding.bar.visibility = VISIBLE
+        binding.fab.show()
     }
 }

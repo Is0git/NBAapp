@@ -11,12 +11,14 @@ import com.android.nbaapp.data.db.enitities.NewsEntity
 import com.android.nbaapp.databinding.NewsListViewBinding
 import com.android.nbaapp.di.mainActivity.ActivityContextQualifier
 import com.android.nbaapp.di.mainActivity.homeFragment.newsFragment.NewsFragmentScope
+import com.android.nbaapp.utils.listeners.NewsClickHandler
 import javax.inject.Inject
 
 @NewsFragmentScope
 class NewsListAdapter @Inject constructor(@ActivityContextQualifier val context: Context) :
     ListAdapter<NewsEntity, NewsListAdapter.MyViewHolder>(newsCallback) {
 
+    lateinit var onClickInterface:NewsClickHandler<NewsEntity>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         Log.d("BOD", "POSITION: RR")
         val binding = NewsListViewBinding.inflate(LayoutInflater.from(context), parent, false)
@@ -28,7 +30,7 @@ class NewsListAdapter @Inject constructor(@ActivityContextQualifier val context:
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.binding.root.setOnClickListener { Log.d("TAG1", "CLICKLED") }
+        holder.binding.onClickInterface = this.onClickInterface
         Log.d("BOD", "POSITION: $position")
         val item = getItem(position)
         holder.binding.data = item

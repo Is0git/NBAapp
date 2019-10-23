@@ -20,7 +20,11 @@
     <fragment
         android:id="@+id/newsFragment"
         android:name="com.android.nbaapp.ui.fragments.nestedFragments.NewsFragment"
-        android:label="NewsFragment" />
+        android:label="NewsFragment" >
+        <action
+            android:id="@+id/action_newsFragment_to_singleNewsFragment"
+            app:destination="@id/singleNewsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/gamesFragment"
         android:name="com.android.nbaapp.ui.fragments.nestedFragments.GamesFragment"
@@ -29,4 +33,8 @@
         android:id="@+id/addFragment"
         android:name="com.android.nbaapp.ui.fragments.nestedFragments.AddFragment"
         android:label="AddFragment" />
+    <fragment
+        android:id="@+id/singleNewsFragment"
+        android:name="com.android.nbaapp.ui.fragments.SingleNewsFragment"
+        android:label="SingleNewsFragment" />
 </navigation>

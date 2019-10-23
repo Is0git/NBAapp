@@ -4,11 +4,15 @@
         <variable
             name="data"
             type="com.android.nbaapp.data.db.enitities.NewsEntity" />
+        <variable
+            name="onClickInterface"
+            type="com.android.nbaapp.utils.listeners.NewsClickHandler" />
     </data>
     <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:background="@color/colorOnSecondary"
+        style="@style/Widget.MaterialComponents.CardView"
         android:layout_marginLeft="@dimen/mtrl_card_spacing"
         android:layout_marginTop="@dimen/mtrl_card_spacing"
         android:layout_marginRight="@dimen/mtrl_card_spacing"
@@ -19,6 +23,7 @@
             android:orientation="vertical"
             android:paddingBottom="10dp"
             android:focusable="true"
+            android:onClick="@{() -> onClickInterface.onNewsClick(data)}"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:layout_height="match_parent">

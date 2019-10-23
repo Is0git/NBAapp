@@ -4,7 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android" >
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp">
         <com.google.android.material.card.MaterialCardView
             style="@style/Widget.MaterialComponents.CardView"
             android:layout_width="match_parent"
@@ -13,23 +14,20 @@
             android:layout_marginLeft="@dimen/mtrl_card_spacing"
             android:layout_marginTop="@dimen/mtrl_card_spacing"
             android:layout_marginRight="@dimen/mtrl_card_spacing"
-            android:layout_marginBottom="@dimen/mtrl_card_spacing"
-            android:paddingBottom="10dp"
             android:minHeight="200dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/main_layout"
-                android:paddingBottom="5dp"
                 android:background="@color/colorOnSecondary">
 
 
                 <ImageView
 
                     android:id="@+id/favorite_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_marginEnd="16dp"
                     app:layout_constraintBottom_toBottomOf="@+id/profile_pic"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -65,6 +63,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
+                    android:transitionName="imageTransition"
                     app:layout_constraintTop_toBottomOf="@+id/profile_pic"
                     app:srcCompat="@drawable/shaq2" />
 
@@ -99,6 +98,7 @@
                     android:text="@string/news_title"
                     android:textColor="@color/colorTextDark"
                     android:textSize="28sp"
+                    android:transitionName="titleTransition"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/profile_pic"

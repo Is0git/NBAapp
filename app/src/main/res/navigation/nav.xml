@@ -16,15 +16,18 @@
         <action
             android:id="@+id/action_homeFragment_to_addFragment"
             app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_singleNewsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/singleNewsFragment" />
     </fragment>
     <fragment
         android:id="@+id/newsFragment"
         android:name="com.android.nbaapp.ui.fragments.nestedFragments.NewsFragment"
-        android:label="NewsFragment" >
-        <action
-            android:id="@+id/action_newsFragment_to_singleNewsFragment"
-            app:destination="@id/singleNewsFragment" />
-    </fragment>
+        android:label="NewsFragment" />
     <fragment
         android:id="@+id/gamesFragment"
         android:name="com.android.nbaapp.ui.fragments.nestedFragments.GamesFragment"

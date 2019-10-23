@@ -18,8 +18,6 @@ import com.android.nbaapp.databinding.HomeFragmentBinding
 import com.android.nbaapp.ui.activities.MainActivity
 import com.android.nbaapp.ui.adapters.ViewPagerAdapter
 import com.android.nbaapp.utils.FragmentsComs
-import com.google.android.material.behavior.HideBottomViewOnScrollBehavior
-import com.google.android.material.bottomappbar.BottomAppBar
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -104,5 +102,20 @@ class HomeFragment : DaggerFragment(), FragmentsComs {
     override fun showBottomBar() {
         binding.bar.visibility = VISIBLE
         binding.fab.show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("SAATE", "HOME DESTOY")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d("SAATE", "HOME VIEW DESTROY")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.d("SAATE", "HOME DETACHED")
     }
 }

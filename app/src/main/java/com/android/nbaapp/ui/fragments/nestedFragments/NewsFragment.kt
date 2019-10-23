@@ -1,13 +1,19 @@
 package com.android.nbaapp.ui.fragments.nestedFragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.FragmentNavigator
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.android.nbaapp.R
 import com.android.nbaapp.data.db.enitities.NewsEntity
@@ -77,8 +83,28 @@ class NewsFragment : DaggerFragment(), NewsClickHandler<NewsEntity> {
         navigator = Navigation.findNavController(view)
     }
 
-    override fun onNewsClick(data: NewsEntity) {
-        navigator.navigate(R.id.singleNewsFragment)
+
+    override fun onNewsClick(view1: View, view2: View, data: NewsEntity) {
+        //Transition names has to be unique therefore we have to make unique names for recycler view shared elements views
+        val extras = FragmentNavigatorExtras(view1 as ImageView to "${view1.transitionName}", view2 as TextView to "${view2.transitionName}")
+        val regex = Regex("\\d+")
+        val position = regex.find(view1.transitionName.toString())
+        val bundle : Bundle? = Bundle().also {  it.putString("position", position?.value)}
+        navigator.navigate(R.id.action_homeFragment_to_singleNewsFragment, bundle, null, extras)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("SAATE", "NEWS DESTOY")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d("SAATE", "NEWS VIEW DESTROY")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.d("SAATE", "NEWS DETACHED")
+    }
 }

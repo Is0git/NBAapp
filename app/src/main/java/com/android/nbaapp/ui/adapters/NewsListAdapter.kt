@@ -30,6 +30,8 @@ class NewsListAdapter @Inject constructor(@ActivityContextQualifier val context:
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.binding.newsImage.transitionName = "imageTransition".plus(position)
+        holder.binding.newsTitle.transitionName = "titleTransition".plus(position)
         holder.binding.onClickInterface = this.onClickInterface
         Log.d("BOD", "POSITION: $position")
         val item = getItem(position)

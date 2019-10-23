@@ -19,5 +19,5 @@ interface NewsDao {
     suspend fun deleteAll()
 
     @Query("SELECT * FROM NEWS_TABLE WHERE id == (:newsId)")
-    fun getSingleNews(newsId:Int) : LiveData<NewsEntity>
+    fun getSingleNews(newsId:Int?) : LiveData<NewsEntity>
 }

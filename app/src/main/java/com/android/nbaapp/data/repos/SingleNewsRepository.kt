@@ -6,6 +6,6 @@ import javax.inject.Inject
 @SingleNewsScope
 class SingleNewsRepository @Inject constructor(private val database: MainDatabase) {
 
-    fun getSingleNews(id:Int) = database.NewsDao().getSingleNews(id)
+    fun getSingleNews(id:Int?) = database.NewsDao().getSingleNews(id)
 
 }

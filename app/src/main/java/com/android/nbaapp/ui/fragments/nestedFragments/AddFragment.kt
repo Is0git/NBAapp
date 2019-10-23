@@ -42,8 +42,10 @@ class AddFragment : DaggerFragment(){
         val title = binding.titleText.text.toString()
         val description = binding.descriptionText.text.toString()
         val image_url = binding.imageUrlText.text.toString()
-        if (title.isNotBlank() && description.isNotBlank() && image_url.isNotBlank()) viewmodel.addNews(
-            NewsEntity(title, image_url, description)
+        val user_url = binding.userImageText.text.toString()
+        val secondary_text = binding.subtextText.text.toString()
+        if (title.isNotBlank() && description.isNotBlank() && image_url.isNotBlank()  && user_url.isNotBlank() && secondary_text.isNotBlank()) viewmodel.addNews(
+            NewsEntity(title, image_url, description, secondary_text, user_url)
         ).also { navigation.navigateUp() }
         else Toast.makeText(context, "FILL ALL FIELDS", Toast.LENGTH_LONG).show()
     }

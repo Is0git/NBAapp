@@ -2,6 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.android.nbaapp.data.vms.SingleNewsViewModel" />
+        <variable
+            name="id"
+            type="Integer" />
+    </data>
 
     <com.google.android.material.card.MaterialCardView
         style="@style/Widget.MaterialComponents.CardView"
@@ -32,7 +40,7 @@
                     android:layout_height="30dp"
                     android:layout_marginEnd="22dp"
                     android:background="@drawable/baseline_favorite_black_48dp"
-                    android:backgroundTint="@color/red"
+                    android:backgroundTint="@{viewModel.data.isFavorite == true ? @color/red : @color/colorTextDark}"
                     app:layout_constraintBottom_toBottomOf="@+id/profile_pic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -46,7 +54,7 @@
                     android:layout_marginEnd="15dp"
                     android:fontFamily="@font/quicksand"
                     android:lineSpacingExtra="5dp"
-                    android:text="@string/news_text"
+                    android:text="@{viewModel.data.description}"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +70,7 @@
                     android:layout_marginTop="8dp"
                     android:background="@drawable/shaq2"
                     android:transitionName="imageTransition"
+                    loadImage="@{viewModel.data.image_url}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -75,6 +84,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:src="@drawable/shaq2"
+                    loadImage="@{viewModel.data.user_image}"
                     app:civ_border_color="@color/surfaceColor"
                     app:civ_border_width="5dp"
                     app:layout_constraintBottom_toTopOf="@+id/news_photo"
@@ -91,33 +101,33 @@
 
                 <TextView
                     android:id="@+id/news_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="4dp"
                     android:fontFamily="@font/myriadpro"
-                    android:text="@string/news_title"
+                    android:text="@{viewModel == null ? null : viewModel.data.title, default = `TITLE`}"
                     android:textColor="@color/colorTextDark"
-                    android:textSize="28sp"
+                    android:textSize="20sp"
                     android:transitionName="titleTransition"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintBottom_toTopOf="@+id/creator_info"
+                    app:layout_constraintEnd_toStartOf="@+id/favorite_icon"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/profile_pic"
-                    app:layout_constraintTop_toTopOf="@+id/profile_pic" />
+                    app:layout_constraintTop_toTopOf="@+id/profile_pic"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/creator_info"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/myriadpro"
-                    android:text="@string/creator_info"
+                    android:text="@{viewModel.data.secondaryText}"
                     android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/profile_pic"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/news_photo"
+                    app:layout_constraintEnd_toEndOf="@+id/news_title"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/news_title"
-                    app:layout_constraintTop_toBottomOf="@+id/news_title"
-                    app:layout_constraintVertical_bias="0.37" />
+                    app:layout_constraintStart_toStartOf="@+id/news_title" />
 
                 <View
                     android:id="@+id/divider"

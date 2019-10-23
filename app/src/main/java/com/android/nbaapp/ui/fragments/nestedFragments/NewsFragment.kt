@@ -1,7 +1,6 @@
 package com.android.nbaapp.ui.fragments.nestedFragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +9,7 @@ import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
-import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.android.nbaapp.R
@@ -89,7 +86,10 @@ class NewsFragment : DaggerFragment(), NewsClickHandler<NewsEntity> {
         val extras = FragmentNavigatorExtras(view1 as ImageView to "${view1.transitionName}", view2 as TextView to "${view2.transitionName}")
         val regex = Regex("\\d+")
         val position = regex.find(view1.transitionName.toString())
-        val bundle : Bundle? = Bundle().also {  it.putString("position", position?.value)}
+        val bundle: Bundle? = Bundle().also {
+            it.putString("position", position?.value)
+            it.putInt("id", data.id)
+        }
         navigator.navigate(R.id.action_homeFragment_to_singleNewsFragment, bundle, null, extras)
     }
 

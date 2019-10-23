@@ -1,5 +1,6 @@
 package com.android.nbaapp.data.vms
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.android.nbaapp.data.db.enitities.NewsEntity
@@ -10,9 +11,8 @@ import javax.inject.Inject
 @SingleNewsScope
 class SingleNewsViewModel @Inject constructor(private val repository: SingleNewsRepository) :
     ViewModel() {
-
-    private lateinit var news: NewsEntity
-    fun getSingleNews(id: Int): LiveData<NewsEntity> = repository.getSingleNews(id)
+    var id:Int? = null
+    val data: LiveData<NewsEntity> = repository.getSingleNews(5).also { Log.d("TAG", "DID IT WORK?") }
 
 
 }

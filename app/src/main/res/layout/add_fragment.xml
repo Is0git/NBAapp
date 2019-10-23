@@ -64,11 +64,39 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/image_url"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/title_text_layout">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/image_url_text"
+                        android:layout_width="match_parent"
+                        android:singleLine="true"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/subtext_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/secondary_text"
+                    app:layout_constraintTop_toBottomOf="@+id/image_text_layout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/subtext_text"
+                        android:layout_width="match_parent"
+                        android:singleLine="true"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/user_image_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/author_image"
+                    app:layout_constraintTop_toBottomOf="@+id/subtext_layout">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/user_image_text"
                         android:layout_width="match_parent"
                         android:singleLine="true"
                         android:layout_height="wrap_content" />
@@ -81,7 +109,7 @@
                     android:text="@string/add"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/image_text_layout" />
+                    app:layout_constraintTop_toBottomOf="@id/user_image_layout" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/group"

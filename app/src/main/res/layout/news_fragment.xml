@@ -6,7 +6,6 @@
     <androidx.constraintlayout.motion.widget.MotionLayout
         android:layout_width="match_parent"
         app:layoutDescription="@xml/motion_scene"
-        app:showPaths="true"
         android:layout_height="match_parent">
 
         <com.google.android.material.card.MaterialCardView

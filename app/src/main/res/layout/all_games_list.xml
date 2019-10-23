@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="@dimen/cardview_default_elevation"
+        android:minHeight="150dp"
         android:layout_marginLeft="@dimen/mtrl_card_spacing"
         android:layout_marginTop="@dimen/mtrl_card_spacing"
         android:layout_marginRight="@dimen/mtrl_card_spacing">
@@ -19,7 +20,7 @@
             android:layout_width="match_parent"
             android:paddingBottom="10dp"
             android:background="@drawable/gradient2"
-            android:layout_height="match_parent">
+            android:layout_height="150dp">
 
             <ImageView
                 android:id="@+id/first_team_image"

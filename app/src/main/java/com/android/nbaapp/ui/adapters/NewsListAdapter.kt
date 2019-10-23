@@ -19,13 +19,16 @@ class NewsListAdapter @Inject constructor(@ActivityContextQualifier val context:
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         Log.d("BOD", "POSITION: RR")
-       val  binding = NewsListViewBinding.inflate(LayoutInflater.from(context), parent, false)
+        val binding = NewsListViewBinding.inflate(LayoutInflater.from(context), parent, false)
         return MyViewHolder(binding)
     }
+
     init {
         Log.d("BOD", "POSITION: SS")
     }
+
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.binding.root.setOnClickListener { Log.d("TAG1", "CLICKLED") }
         Log.d("BOD", "POSITION: $position")
         val item = getItem(position)
         holder.binding.data = item

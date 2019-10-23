@@ -1,26 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="games"
             type="com.android.nbaapp.data.models.GamesPojo.Data" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:background="@drawable/grey_gradient"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/grey_gradient">
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textSize="20sp"
+            android:text="RECENT GAMES"
+            android:fontFamily="@font/quicksand"
+            android:textColor="@color/colorTextDark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/first_team_image"
+            syncImage="@{games.home_team.name}"
             android:layout_width="110dp"
             android:layout_height="71dp"
             android:background="@drawable/no_photo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/barrier2"
+            app:layout_constraintVertical_bias="0.25" />
 
         <TextView
             android:id="@+id/game_status"
@@ -28,8 +43,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/myriadpro"
             android:text="@{games.status.toUpperCase()}"
-            android:textSize="15sp"
             android:textColor="@color/colorTextDark"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/first_team_score"
             app:layout_constraintEnd_toStartOf="@+id/second_team_score"
             app:layout_constraintStart_toEndOf="@+id/first_team_score"
@@ -40,8 +55,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/myriadpro"
-            android:textColor="@color/colorPrimary"
             android:text="@{games.home_team_score.toString()}"
+            android:textColor="@color/colorPrimary"
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/first_team_image"
@@ -52,8 +67,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/myriadpro"
-            android:textColor="@color/colorPrimary"
             android:text="@{games.visitor_team_score.toString()}"
+            android:textColor="@color/colorPrimary"
             android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="@+id/game_status"
             app:layout_constraintEnd_toStartOf="@+id/second_team_image"
@@ -63,9 +78,13 @@
             android:id="@+id/first_team_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:layout_marginBottom="15dp"
             android:fontFamily="@font/quicksand"
-            android:text="@{games.home_team.name}"
+            android:text="@{games.home_team.name.toUpperCase()}"
+            android:textColor="@color/colorTextDark"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/first_team_image"
             app:layout_constraintHorizontal_bias="0.500"
             app:layout_constraintStart_toStartOf="@+id/first_team_image"
@@ -75,8 +94,13 @@
             android:id="@+id/second_team_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:fontFamily="@font/quicksand"
-            android:text="@{games.visitor_team.name}"
+            android:text="@{games.visitor_team.name.toUpperCase()}"
+            android:textColor="@color/colorTextDark"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/second_team_image"
             app:layout_constraintStart_toEndOf="@+id/second_team_score"
             app:layout_constraintTop_toBottomOf="@+id/second_team_image" />
@@ -84,12 +108,22 @@
 
         <ImageView
             android:id="@+id/second_team_image"
+            syncImage="@{games.visitor_team.name}"
             android:layout_width="110dp"
             android:layout_height="71dp"
             android:background="@drawable/no_photo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/barrier2"
+            app:layout_constraintVertical_bias="0.255" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="title_text"
+            tools:layout_editor_absoluteY="114dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

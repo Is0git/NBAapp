@@ -6,4 +6,5 @@
     <color name="surfaceColor">#F0F0F0</color>
     <color name="colorOnSecondary">#ffffff</color>
     <color name="colorTextDark">#272727</color>
+    <color name="red">#FF0000</color>
 </resources>

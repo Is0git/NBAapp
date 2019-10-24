@@ -19,6 +19,7 @@ android {
     }
     buildTypes {
         release {
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -100,4 +101,7 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.1'
 
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+
+
 }

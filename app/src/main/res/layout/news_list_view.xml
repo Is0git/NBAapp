@@ -46,6 +46,15 @@
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/myriadpro"/>
 
+            <ImageView
+                android:id="@+id/favorite_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="22dp"
+                android:background="@drawable/baseline_favorite_black_48dp"
+                android:backgroundTint="@{data.favorite == true ? @color/red : @color/colorTextDark}"
+                android:layout_gravity="right"/>
+
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>

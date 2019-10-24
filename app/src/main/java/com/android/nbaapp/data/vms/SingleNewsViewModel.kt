@@ -14,7 +14,12 @@ import javax.inject.Inject
 class SingleNewsViewModel @Inject constructor(private val repository: SingleNewsRepository) :
     ViewModel() {
     var id:Int? = null
-    val data: LiveData<NewsEntity> = repository.getSingleNews(5).also { Log.d("TAG", "DID IT WORK?") }
+    var data: LiveData<NewsEntity>? = null
+
+    fun setId(newsId:Int) {
+        this.id = newsId
+        data = repository.getSingleNews(id)
+    }
 
     fun setFavorite(fav:Boolean, id:Int) = viewModelScope.launch { repository.setFav(fav, id) }
 

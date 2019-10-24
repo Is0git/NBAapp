@@ -60,8 +60,8 @@ class NewsFragment : DaggerFragment(), NewsClickHandler<NewsEntity> {
         })
         newsViewModel.news.observe(viewLifecycleOwner, Observer {
             newsListAdapter.submitList(it)
-        })
 
+        })
 
         binding.listRecyclerview.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {

@@ -26,9 +26,9 @@ class SingleNewsFragment : DaggerFragment() {
         super.onCreate(savedInstanceState)
         position = arguments?.get("position").toString()
         id = arguments?.getInt("id")
+        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(R.transition.move)
 
-        sharedElementEnterTransition =
-            TransitionInflater.from(context).inflateTransition(R.transition.move)
+
     }
 
     override fun onCreateView(
@@ -38,22 +38,19 @@ class SingleNewsFragment : DaggerFragment() {
     ): View? {
         viewmodel =
             ViewModelProviders.of(activity!!, viewModelFactory).get(SingleNewsViewModel::class.java)
+        id?.let { viewmodel.setId(it) }
         binding = SingleNewsFragmentBinding.inflate(inflater, container, false)
         binding.apply {
-            id = this.id
             lifecycleOwner = activity
             viewModel = viewmodel
-
         }
-
-
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             binding.newsPhoto.transitionName = "imageTransition".plus(position)
             binding.newsTitle.transitionName = "titleTransition".plus(position)
         }
 
+        binding.favoriteIcon.setOnClickListener { if(binding.viewModel?.data?.value?.isFavorite == false) viewmodel.setFavorite(true, id!!) else viewmodel.setFavorite(false, id!!) }
         return binding.root
     }
-
 }

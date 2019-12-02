@@ -4,7 +4,7 @@
 
 
 <p>Simple NBA app using MVVM architecture, android dagger and jetpack architecture components, retrofit, material design</p>
-<h1><a href='https://streamable.com/3firm' target='_blank'>DEMO</a></h1>
+<h1><a href='https://streamable.com/i8qcx'>DEMO</a></h1>
 
 
 <h2><strong>Essential libraries I used:</h2>
